@@ -9,11 +9,16 @@ import java.util.List;
  */
 
 public class Persbureau {
-    private String nieuws;
+
     private List<Kanaal> kanalen = new ArrayList<>();
+    private String nieuws = "";
+
+    public String getNieuws() {
+        return nieuws;
+    }
 
     public void ObserverToevoegen (Kanaal kanaal) {
-        this.kanalen.add(kanaal);
+        kanalen.add(kanaal);
     }
 
     public void ObserverVerwijderen (Kanaal kanaal) {
@@ -22,9 +27,8 @@ public class Persbureau {
 
     public void setNieuws(String nieuws){
         this.nieuws = nieuws;
-        for (Kanaal kanaal : this.kanalen) {
-            kanaal.update(this.nieuws);
+        for (Kanaal kanaal : kanalen) {
+            kanaal.update();
         }
     }
-
 }

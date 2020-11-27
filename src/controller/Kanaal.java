@@ -1,5 +1,8 @@
 package controller;
 
-public interface Kanaal {
-    public void update(Object object);
+import javax.security.auth.Subject;
+
+public abstract class Kanaal {
+    protected Persbureau persbureau;
+    public abstract void update();
 }

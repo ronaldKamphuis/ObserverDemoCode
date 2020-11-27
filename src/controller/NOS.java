@@ -6,22 +6,17 @@ package controller;
  * Doel:
  */
 
-public class NOS implements Kanaal {
+public class NOS extends Kanaal {
+
+    public NOS(Persbureau persbureau){
+        this.persbureau = persbureau;
+        this.persbureau.ObserverToevoegen(this);
+    }
 
     private final String STATION = "NOS";
-    private String nieuws;
-
-    public String getNieuws() {
-        return nieuws;
-    }
-
-    public void setNieuws(String nieuws) {
-        this.nieuws = nieuws;
-    }
 
     @Override
-    public void update(Object nieuws) {
-        this.setNieuws(STATION + ": Beste dames en heren: " + nieuws);
+    public void update() {
+        System.out.println(STATION + ": " + persbureau.getNieuws());
     }
-
 }
